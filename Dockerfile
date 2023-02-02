@@ -13,6 +13,7 @@ RUN chmod 777 /usr/src/app && \
 
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt && \
+    pip3 install Flask==2.0.2 flask_restful && \
     apt-get -qq purge git && apt-get -y autoremove && apt-get -y autoclean
 RUN locale-gen en_US.UTF-8
 
