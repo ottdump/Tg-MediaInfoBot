@@ -23,18 +23,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 9:
     LOGGER(__name__).critical(VERSION_ASCII)
     sys.exit(1)
 
-if not os.path.exists("token.json"):
-    LOGGER(__name__).critical("token.json not found. quitting...")
-    sys.exit(1)
-
-if not os.path.exists("credentials.json"):
-    LOGGER(__name__).info("credentials.json not found. quitting....")
-    sys.exit(1)
-
-with open(f"{os.getcwd()}/token.json", "r") as file:
-    access_token = file.read()
-
-access_token = json.loads(access_token)
+access_token = None
 
 BANNER = """
 ____________________________________________________________________
